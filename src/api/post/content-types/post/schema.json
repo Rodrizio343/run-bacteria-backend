@@ -40,12 +40,6 @@
       "required": true,
       "default": true
     },
-    "comments": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::comment.comment",
-      "mappedBy": "post"
-    },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
