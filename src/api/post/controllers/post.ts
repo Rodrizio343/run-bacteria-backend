@@ -21,7 +21,6 @@ module.exports = createCoreController('api::post.post', ({ strapi }) => ({
           },
           populate: ['createdBy'],
         });
-        console.log(post)
         data[index].createdBy = {
           id: post.createdBy.id,
           firstname: post.createdBy.firstname,
@@ -33,4 +32,24 @@ module.exports = createCoreController('api::post.post', ({ strapi }) => ({
 
     return { data, meta };
   },
+  async findOne(ctx) {
+    const { data } = await super.findOne(ctx);
+
+    const query = strapi.db.query('api::post.post');
+
+    const post =  await query.findOne({
+      where: {
+        id: data.id,
+      },
+      populate: ['createdBy'],
+    });
+    data.createdBy = {
+      id: post.createdBy.id,
+      firstname: post.createdBy.firstname,
+      lastname: post.createdBy.lastname,
+      email: post.createdBy.email
+    };
+    
+    return { data }   
+  } 
 }));
