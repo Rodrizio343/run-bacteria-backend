@@ -21,11 +21,11 @@ services:
         value: production
       - key: STRAPI_ADMIN_BACKEND_URL # Imported from Heroku app
         value: https://run-bacteria-backend-9a4520b26df3.herokuapp.com
-      # - key: DATABASE_URL # Render PostgreSQL database
-      #   fromDatabase:
-      #     name: postgresql-amorphous-25165
-      #     property: connectionString
+      - key: DATABASE_URL # Render PostgreSQL database
+        fromDatabase:
+          name: postgresql-amorphous-25165
+          property: connectionString
 
-databases: # Render PostgreSQL database
+databases:# Render PostgreSQL database
   # - name: postgresql-amorphous-25165
   #   ipAllowList: [] # only allow internal connections
