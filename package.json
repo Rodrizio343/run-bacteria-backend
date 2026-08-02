@@ -31,6 +31,9 @@
     "npm": "10.1.0"
   },
   "license": "MIT",
+  "overrides": {
+    "webpack": "5.104.0"
+  },
   "devDependencies": {
     "@faker-js/faker": "^8.1.0",
     "@types/minimatch": "^6.0.0",
